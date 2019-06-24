@@ -89,17 +89,26 @@ document.addEventListener('click', (event) => {
       Caman('#canvas', img, function() {
         this.herMajesty().render();
       })
+    } else if(event.target.classList.contains('purple-duotone-add')) {
+      // console.log("Duotone got clicked!");
+      let myCanvas = document.getElementById("canvas");
+      myCanvas.setAttribute("data-philter-duotone", "#7028e4 #e5b2ca"); 
+      myCanvas.setAttribute("data-philter-contrast", "120");      
+    } else if(event.target.classList.contains('green-duotone-add')) {
+      console.log('green got clicked')
+      let myCanvas = document.getElementById("canvas");
+      myCanvas.setAttribute("data-philter-duotone", "#009efd #2af598");
+      myCanvas.setAttribute("data-philter-contrast", "120");      
+    } else if(event.target.classList.contains('vintage-rose-add')) {
+      let myCanvas = document.getElementById("canvas");
+      myCanvas.setAttribute("data-philter-vintage", "5");
+    } else if(event.target.classList.contains('vintage-bw-add')) {
+      console.log("TEsting testing");
+      let myCanvas = document.getElementById("canvas");
+      myCanvas.setAttribute("data-philter-vintage", "6");
+      myCanvas.setAttribute("data-philter-contrast", "125"); 
+      myCanvas.setAttribute("data-philter-brightness", "225"); 
     } 
-    // else if(event.target.classList.contains('data-philter-duotone')) {
-    //   <img data-philter-duotone="#7028e4 #e5b2ca" src={img} class="img-fluid" alt="hover"/>
-
-      // let duotone = new Philter();
-      // {<img data-philter-duotone="#7028e4 #e5b2ca" src="https://source.unsplash.com/9417pueOkiE/763x480" class="img-fluid" alt="hover"/>}
-      // Caman('#canvas', img, function() {
-      //   this.philter().render();
-      // }
-    // }
-    
   }
 });
 
@@ -108,6 +117,9 @@ revertBtn.addEventListener('click', (event) => {
   Caman('#canvas', img, function() {
     this.revert();
   });
+  let myCanvas = document.getElementById("canvas");
+  myCanvas.removeAttribute("data-philter-duotone"); 
+  myCanvas.removeAttribute("data-philter-vintage");     
 })
 
 // Upload File
